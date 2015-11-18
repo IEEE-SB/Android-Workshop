@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Tichu Counter</string>
+    <string name="teamA">Team A</string>
+    <string name="scoreTeamA">0</string>
+    <string name="teamB">Team B</string>
+    <string name="scoreTeamB">0</string>
+    <string name="grandTichu">Grand Tichu</string>
+    <string name="tichu">Tichu</string>
+    <string name="oneTwo">1 - 2</string>
+    <string name="plus50">+ 50</string>
+    <string name="plus20">+ 20</string>
+    <string name="plus10">+ 10</string>
+    <string name="plus5">+ 5</string>
+    <string name="currentPointsTeamA">"Team A: "</string>
+    <string name="currentPointsTeamB">"Team B: "</string>
+    <string name="go">Go</string>
+    <string name="clear">CLR</string>
+
+
+</resources>
