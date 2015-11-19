@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     int currentScoreTeamA = 0;
     int currentScoreTeamB = 0;
+    
+    int finalScoreA = 0, finalScoreB = 0;
 
     int currentCardsScoreTeamA = 0;
     int currentCardsScoreTeamB = 0;
@@ -73,6 +75,17 @@ public class MainActivity extends AppCompatActivity {
         updateScores();
     }
 
+    public void go_preesed (View view){
+        TextView pointsTeamA = (TextView) findViewById(R.id.scoreTeamA);
+        TextView pointsTeamB = (TextView) findViewById(R.id.scoreTeamB);
+
+        finalScoreA += currentScoreTeamA;
+        finalScoreB += currentScoreTeamB;
+        pointsTeamA.setText(String.valueOf(finalScoreA));
+        pointsTeamB.setText(String.valueOf(finalScoreB));
+
+        new_round();
+    }
 
     private void updateScores() {
 
