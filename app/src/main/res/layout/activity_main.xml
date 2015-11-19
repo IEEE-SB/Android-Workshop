@@ -166,6 +166,7 @@
                             android:layout_height="60dp"
                             android:text="@string/go"
                             android:id="@+id/go_btn"
+                            android:onClick="go_preesed"
                             android:layout_margin="1dp"
                             android:gravity="center|center_horizontal" />
 
