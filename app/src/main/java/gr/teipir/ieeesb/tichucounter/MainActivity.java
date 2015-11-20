@@ -45,32 +45,32 @@ public class MainActivity extends AppCompatActivity {
         new_round();
     }
 
-    public void plus50_pressed(View view){
-        if (currentCardsScoreTeamA + 50 <= 100 && !(oneTwoTeamA || oneTwoTeamB) ) {
+    public void plus50_pressed(View view) {
+        if (currentCardsScoreTeamA + 50 <= 100 && !(oneTwoTeamA || oneTwoTeamB)) {
             currentCardsScoreTeamA += 50;
             currentCardsScoreTeamB = 100 - currentCardsScoreTeamA;
         }
         updateScores();
     }
 
-    public void plus20_pressed(View view){
-        if (currentCardsScoreTeamA + 20 <= 100 && !(oneTwoTeamA || oneTwoTeamB) ) {
+    public void plus20_pressed(View view) {
+        if (currentCardsScoreTeamA + 20 <= 100 && !(oneTwoTeamA || oneTwoTeamB)) {
             currentCardsScoreTeamA += 20;
             currentCardsScoreTeamB = 100 - currentCardsScoreTeamA;
         }
         updateScores();
     }
 
-    public void plus10_pressed(View view){
-        if (currentCardsScoreTeamA + 10 <= 100 && !(oneTwoTeamA || oneTwoTeamB) ) {
+    public void plus10_pressed(View view) {
+        if (currentCardsScoreTeamA + 10 <= 100 && !(oneTwoTeamA || oneTwoTeamB)) {
             currentCardsScoreTeamA += 10;
             currentCardsScoreTeamB = 100 - currentCardsScoreTeamA;
         }
         updateScores();
     }
 
-    public void plus5_pressed(View view){
-        if (currentCardsScoreTeamA + 5 <= 100 && !(oneTwoTeamA || oneTwoTeamB) ) {
+    public void plus5_pressed(View view) {
+        if (currentCardsScoreTeamA + 5 <= 100 && !(oneTwoTeamA || oneTwoTeamB)) {
             currentCardsScoreTeamA += 5;
             currentCardsScoreTeamB = 100 - currentCardsScoreTeamA;
         }
@@ -103,42 +103,42 @@ public class MainActivity extends AppCompatActivity {
         currentScoreTeamA = 0;
         currentScoreTeamB = 0;
 
-        if (tichuTeamA == 1 ){
+        if (tichuTeamA == 1) {
             prizeA += 100;
-        } else if ( tichuTeamA == -1 ){
+        } else if (tichuTeamA == -1) {
             prizeA += -100;
         }
 
-        if ( grandTichuTeamA == 1 ){
+        if (grandTichuTeamA == 1) {
             prizeA += 200;
-        } else if ( grandTichuTeamA == -1 ){
+        } else if (grandTichuTeamA == -1) {
             prizeA += -200;
         }
 
-        if ( tichuTeamB == 1 ) {
+        if (tichuTeamB == 1) {
             prizeB += 100;
-        } else if ( tichuTeamB == -1 ){
+        } else if (tichuTeamB == -1) {
             prizeB += -100;
         }
 
-        if ( grandTichuTeamB == 1 ){
+        if (grandTichuTeamB == 1) {
             prizeB += 200;
-        } else if ( grandTichuTeamB == -1 ){
+        } else if (grandTichuTeamB == -1) {
             prizeB += -200;
         }
 
-        if ( oneTwoTeamA ) {
+        if (oneTwoTeamA) {
             prizeA += 200;
         } else if (oneTwoTeamB) {
             prizeB += 200;
         }
 
-        if ( oneTwoTeamA || oneTwoTeamB ) {
+        if (oneTwoTeamA || oneTwoTeamB) {
             currentScoreTeamA = prizeA;
             currentScoreTeamB = prizeB;
         }
 
-        if ( !oneTwoTeamA  && !oneTwoTeamB ) {
+        if (!oneTwoTeamA && !oneTwoTeamB) {
             currentScoreTeamA = prizeA + currentCardsScoreTeamA;
             currentScoreTeamB = prizeB + currentCardsScoreTeamB;
         }
@@ -462,6 +462,5 @@ public class MainActivity extends AppCompatActivity {
         updateScores();
 
     }
-
 
 }

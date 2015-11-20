@@ -14,8 +14,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:baselineAligned="false">
             android:layout_height="0dp"
+            android:baselineAligned="false"
             android:layout_weight="1">
 
             <LinearLayout
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:baselineAligned="true"
-            android:gravity="center|bottom">
+            android:gravity="center|bottom"
             android:layout_marginTop="10dp">
 
             <LinearLayout
@@ -183,9 +183,9 @@
                             android:layout_height="60dp"
                             android:text="@string/go"
                             android:id="@+id/go_btn"
-                            android:onClick="go_pressed"/>
                             android:layout_margin="1dp"
-                            android:gravity="center|center_horizontal" />
+                            android:gravity="center|center_horizontal"
+                            android:onClick="go_pressed"/>
 
                         <Button
                             android:layout_width="match_parent"
