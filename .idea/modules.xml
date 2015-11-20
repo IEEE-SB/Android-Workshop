@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TichuCounter.iml" filepath="$PROJECT_DIR$/TichuCounter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tichu-Counter.iml" filepath="$PROJECT_DIR$/Tichu-Counter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

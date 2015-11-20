@@ -7,30 +7,32 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-
-
 public class MainActivity extends AppCompatActivity {
 
+    /* Variables for storing total scores of GAME */
     int scoreTeamA = 0;
     int scoreTeamB = 0;
 
+    /* Variables for storing total scores per ROUND */
     int currentScoreTeamA = 0;
     int currentScoreTeamB = 0;
-    
-    int finalScoreA = 0, finalScoreB = 0;
 
+    /* Variables for storing scores from cards per ROUND, not for grand-tichu, tichu, one-two */
     int currentCardsScoreTeamA = 0;
     int currentCardsScoreTeamB = 0;
 
-    /* -1 Lost, 0 Does not Apply, 1 Won */
+    /* Flags for grandTichu to calculate prizeA, prizeB in
+    function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
     int grandTichuTeamA = 0;
     int grandTichuTeamB = 0;
 
-    /* -1 Lost, 0 Does not Apply, 1 Won */
+    /* Flags for tichu to calculate prizeA, prizeB in
+     function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
     int tichuTeamA = 0;
     int tichuTeamB = 0;
 
-    /* 0 Does not Apply, 1 Applies */
+    /* Flags for one-two to calculate prizeA, prizeB in
+    function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
     boolean oneTwoTeamA = false;
     boolean oneTwoTeamB = false;
 
@@ -75,16 +77,22 @@ public class MainActivity extends AppCompatActivity {
         updateScores();
     }
 
-    public void go_preesed (View view){
-        TextView pointsTeamA = (TextView) findViewById(R.id.scoreTeamA);
-        TextView pointsTeamB = (TextView) findViewById(R.id.scoreTeamB);
 
-        finalScoreA += currentScoreTeamA;
-        finalScoreB += currentScoreTeamB;
-        pointsTeamA.setText(String.valueOf(finalScoreA));
-        pointsTeamB.setText(String.valueOf(finalScoreB));
+    public void go_pressed(View view) {
+
+        TextView teamAscore = (TextView) findViewById(R.id.scoreTeamA);
+        TextView teamBscore = (TextView) findViewById(R.id.scoreTeamB);
+
+        scoreTeamA += currentScoreTeamA;
+        scoreTeamB += currentScoreTeamB;
+
+        teamAscore.setText(String.valueOf(scoreTeamA));
+        teamBscore.setText(String.valueOf(scoreTeamB));
+
+        update_history();
 
         new_round();
+
     }
 
     private void updateScores() {
@@ -155,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void reset_vars() {
+
         currentScoreTeamA = 0;
         currentScoreTeamB = 0;
         currentCardsScoreTeamA = 0;
@@ -165,6 +174,14 @@ public class MainActivity extends AppCompatActivity {
         tichuTeamB = 0;
         oneTwoTeamA = false;
         oneTwoTeamB = false;
+
+        tichuTeamA_deactivate();
+        tichuTeamB_deactivate();
+        grandTichuTeamA_deactivate();
+        grandTichuTeamB_deactivate();
+        oneTwoTeamA_deactivate();
+        oneTwoTeamB_deactivate();
+
     }
 
     public void clear(View view) {
@@ -173,9 +190,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void update_history() {
+
+        TextView teamAhistory = (TextView) findViewById(R.id.historyTeamA);
+        TextView teamBhistory = (TextView) findViewById(R.id.historyTeamB);
+
+        teamAhistory.setText(teamAhistory.getText() + "\n" + currentScoreTeamA);
+        teamBhistory.setText(teamBhistory.getText() + "\n" + currentScoreTeamB);
+    }
+
 
     public void oneTwoTeamA_pressed(View view) {
-        OneTwoTeamB_deactivate();
+        oneTwoTeamB_deactivate();
 
         oneTwoTeamA = !oneTwoTeamA;
 
@@ -191,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void oneTwoTeamB_pressed(View view) {
-        OneTwoTeamA_deactivate();
+        oneTwoTeamA_deactivate();
 
         oneTwoTeamB = !oneTwoTeamB;
 
@@ -206,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void OneTwoTeamA_deactivate() {
+    private void oneTwoTeamA_deactivate() {
 
         ToggleButton btn = (ToggleButton) findViewById(R.id.oneTwoTeamA);
         btn.setChecked(false);
@@ -214,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void OneTwoTeamB_deactivate() {
+    private void oneTwoTeamB_deactivate() {
 
         ToggleButton btn = (ToggleButton) findViewById(R.id.oneTwoTeamB);
         btn.setChecked(false);
@@ -244,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
                 grandTichuTeamB_deactivate();
             }
             if ( oneTwoTeamB ) {
-                OneTwoTeamB_deactivate();
+                oneTwoTeamB_deactivate();
             }
 
         } else if (tichuTeamA == 1) {
@@ -286,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
                 grandTichuTeamB_deactivate();
             }
             if ( oneTwoTeamA ) {
-                OneTwoTeamA_deactivate();
+                oneTwoTeamA_deactivate();
             }
 
         } else if (tichuTeamB == 1) {
@@ -351,7 +377,7 @@ public class MainActivity extends AppCompatActivity {
                 grandTichuTeamB_deactivate();
             }
             if ( oneTwoTeamB ) {
-                OneTwoTeamB_deactivate();
+                oneTwoTeamB_deactivate();
             }
 
         } else if (grandTichuTeamA == 1) {
@@ -392,8 +418,8 @@ public class MainActivity extends AppCompatActivity {
             if (grandTichuTeamA == 1) {
                 grandTichuTeamA_deactivate();
             }
-            if ( oneTwoTeamB ) {
-                OneTwoTeamB_deactivate();
+            if ( oneTwoTeamA ) {
+                oneTwoTeamA_deactivate();
             }
 
         } else if (grandTichuTeamB == 1) {
