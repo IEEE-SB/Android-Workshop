@@ -194,9 +194,11 @@ public class MainActivity extends AppCompatActivity {
 
         TextView teamAhistory = (TextView) findViewById(R.id.historyTeamA);
         TextView teamBhistory = (TextView) findViewById(R.id.historyTeamB);
-
-        teamAhistory.setText(teamAhistory.getText() + "\n" + currentScoreTeamA);
-        teamBhistory.setText(teamBhistory.getText() + "\n" + currentScoreTeamB);
+        if (currentScoreTeamA != 0 && currentScoreTeamB != 0){
+            teamAhistory.setText(teamAhistory.getText() + "\n" + currentScoreTeamA);
+            teamBhistory.setText(teamBhistory.getText() + "\n" + currentScoreTeamB);
+        }
+        
     }
 
 
