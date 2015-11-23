@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     /* Variables for storing scores from cards per ROUND, not for grand-tichu, tichu, one-two */
     int currentCardsScoreTeamA = 0;
-    int currentCardsScoreTeamB = 0;
+    int currentCardsScoreTeamB = 100;
 
     /* Flags for grandTichu to calculate prizeA, prizeB in
     function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
         currentScoreTeamA = 0;
         currentScoreTeamB = 0;
         currentCardsScoreTeamA = 0;
-        currentCardsScoreTeamB = 0;
+        currentCardsScoreTeamB = 100;
         grandTichuTeamA = 0;
         grandTichuTeamB = 0;
         tichuTeamA = 0;
