@@ -22,17 +22,17 @@ public class MainActivity extends AppCompatActivity {
     int currentCardsScoreTeamB = 100;
 
     /* Flags for grandTichu to calculate prizeA, prizeB in
-    function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
+     * function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
     int grandTichuTeamA = 0;
     int grandTichuTeamB = 0;
 
     /* Flags for tichu to calculate prizeA, prizeB in
-     function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
+     * function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
     int tichuTeamA = 0;
     int tichuTeamB = 0;
 
     /* Flags for one-two to calculate prizeA, prizeB in
-    function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
+     * function updateScores(); -1 Lost, 0 Does not Apply, 1 Won */
     boolean oneTwoTeamA = false;
     boolean oneTwoTeamB = false;
 
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         new_round();
     }
 
+    /* Adds 50 points on Team A, and removes 50 points from Team B */
     public void plus50_pressed(View view) {
         if (currentCardsScoreTeamA + 50 <= 100 && !(oneTwoTeamA || oneTwoTeamB)) {
             currentCardsScoreTeamA += 50;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         updateScores();
     }
 
+    /* Adds 20 points on Team A, and removes 20 points from Team B */
     public void plus20_pressed(View view) {
         if (currentCardsScoreTeamA + 20 <= 100 && !(oneTwoTeamA || oneTwoTeamB)) {
             currentCardsScoreTeamA += 20;
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         updateScores();
     }
 
+    /* Adds 10 points on Team A, and removes 10 points from Team B */
     public void plus10_pressed(View view) {
         if (currentCardsScoreTeamA + 10 <= 100 && !(oneTwoTeamA || oneTwoTeamB)) {
             currentCardsScoreTeamA += 10;
@@ -69,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         updateScores();
     }
 
+    /* Adds 5 points on Team A, and removes 5 points from Team B */
     public void plus5_pressed(View view) {
         if (currentCardsScoreTeamA + 5 <= 100 && !(oneTwoTeamA || oneTwoTeamB)) {
             currentCardsScoreTeamA += 5;
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         updateScores();
     }
 
-
+    /* Adds current round's score to the Total Score */
     public void go_pressed(View view) {
 
         TextView teamAscore = (TextView) findViewById(R.id.scoreTeamA);
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Depending on the flags' values, round's points are being calculated */
     private void updateScores() {
 
         int prizeA = 0;
@@ -151,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Starts a new round */
     private void new_round() {
 
         reset_vars();
@@ -162,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
         initScoreTeamB.setText(getString(R.string.currentPointsTeamB) + String.valueOf(currentScoreTeamB));
     }
 
+    /* Reset all necessary variables, TextViews and Buttons*/
     private void reset_vars() {
 
         currentScoreTeamA = 0;
@@ -184,12 +191,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Starts a new round after CLR button being pressed */
     public void clear(View view) {
 
         new_round();
 
     }
 
+    /* Adds current round's score to history TextView */
     private void update_history() {
 
         TextView teamAhistory = (TextView) findViewById(R.id.historyTeamA);
@@ -197,9 +206,10 @@ public class MainActivity extends AppCompatActivity {
 
         teamAhistory.setText(teamAhistory.getText() + "\n" + currentScoreTeamA);
         teamBhistory.setText(teamBhistory.getText() + "\n" + currentScoreTeamB);
+
     }
 
-
+    /* Toggles oneTwoTeamA flag and deactivates Tichu and GrandTichu from Team B */
     public void oneTwoTeamA_pressed(View view) {
         oneTwoTeamB_deactivate();
 
@@ -216,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Toggles oneTwoTeamB flag and deactivates Tichu and GrandTichu from Team A */
     public void oneTwoTeamB_pressed(View view) {
         oneTwoTeamA_deactivate();
 
@@ -232,6 +243,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Resets one-two button and flag for Team A */
     private void oneTwoTeamA_deactivate() {
 
         ToggleButton btn = (ToggleButton) findViewById(R.id.oneTwoTeamA);
@@ -240,6 +252,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Resets one-two button and flag for Team B */
     private void oneTwoTeamB_deactivate() {
 
         ToggleButton btn = (ToggleButton) findViewById(R.id.oneTwoTeamB);
@@ -249,10 +262,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /* Depending on tichuTeamA value, appropriate actions are done.
+     * tichuTeamA is -1 for a lost Tichu, 1 for a won Tichu and 0 if it wasn't called */
     public void tichuTeamA_pressed(View view) {
 
         ToggleButton teamA_tichu = (ToggleButton) findViewById(R.id.tichuTeamA);
-        ToggleButton teamB_tichu = (ToggleButton) findViewById(R.id.tichuTeamB);
 
         if (tichuTeamA == 0) {
 
@@ -291,9 +305,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Depending on tichuTeamB value, appropriate actions are done.
+     * tichuTeamB is -1 for a lost Tichu, 1 for a won Tichu and 0 if it wasn't called */
     public void tichuTeamB_pressed(View view) {
 
-        ToggleButton teamA_tichu = (ToggleButton) findViewById(R.id.tichuTeamA);
         ToggleButton teamB_tichu = (ToggleButton) findViewById(R.id.tichuTeamB);
 
         if (tichuTeamB == 0) {
@@ -333,6 +348,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Deactivates Tichu for Team A */
     private void tichuTeamA_deactivate() {
 
         ToggleButton teamA_tichu = (ToggleButton) findViewById(R.id.tichuTeamA);
@@ -345,6 +361,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Deactivates Tichu for Team B */
     private void tichuTeamB_deactivate() {
 
         ToggleButton teamB_tichu = (ToggleButton) findViewById(R.id.tichuTeamB);
@@ -357,6 +374,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /* Depending on grandTichuTeamA value, appropriate actions are done.
+     * grandTichuTeamA is -1 for a lost Grand Tichu, 1 for a won Grand Tichu and 0 if it wasn't called */
     public void grandTichuTeamA_pressed(View view) {
 
         ToggleButton teamA_grandTichu = (ToggleButton) findViewById(R.id.grandTichuTeamA);
@@ -398,6 +417,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Depending on grandTichuTeamB value, appropriate actions are done.
+     * grandTichuTeamB is -1 for a lost Grand Tichu, 1 for a won Grand Tichu and 0 if it wasn't called */
     public void grandTichuTeamB_pressed(View view) {
 
         ToggleButton teamA_grandTichu = (ToggleButton) findViewById(R.id.grandTichuTeamA);
@@ -439,6 +460,7 @@ public class MainActivity extends AppCompatActivity {
         updateScores();
     }
 
+    /* Deactivates Grand Tichu for Team A */
     private void grandTichuTeamA_deactivate() {
 
         ToggleButton teamA_grandTichu = (ToggleButton) findViewById(R.id.grandTichuTeamA);
@@ -451,6 +473,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /* Deactivates Grand Tichu for Team A */
     private void grandTichuTeamB_deactivate() {
 
         ToggleButton teamB_grandTichu = (ToggleButton) findViewById(R.id.grandTichuTeamB);
