@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/teamA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/teamA"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/scoreTeamA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/scoreTeamA"
+                    android:textSize="50sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/teamB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/teamB"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/scoreTeamB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/scoreTeamB"
+                    android:textSize="50sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/currentPointsTeamA"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center|bottom"
+                android:singleLine="true"
+                android:text="@string/currentPointsTeamA"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/currentPointsTeamB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center|bottom"
+                android:singleLine="true"
+                android:text="@string/currentPointsTeamB"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:baselineAligned="true"
+            android:gravity="center|bottom"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:gravity="center|bottom"
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/grandTichuTeamA"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="grandTichuTeamA_pressed"
+                    android:textOff="@string/grandTichu"
+                    android:textOn="@string/grandTichu"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/tichuTeamA"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="tichuTeamA_pressed"
+                    android:textOff="@string/tichu"
+                    android:textOn="@string/tichu" />
+
+                <ToggleButton
+                    android:id="@+id/oneTwoTeamA"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="oneTwoTeamA_pressed"
+                    android:text="@string/oneTwo"
+                    android:textOff="@string/oneTwo"
+                    android:textOn="@string/oneTwo"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:gravity="center|bottom"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/go_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="go_pressed"
+                    android:text="@string/go" />
+
+                <Button
+                    android:id="@+id/plus50"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="plus50_pressed"
+                    android:text="@string/plus50" />
+
+                <Button
+                    android:id="@+id/plus20"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="plus20_pressed"
+                    android:text="@string/plus20" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:gravity="center|bottom"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/clear"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="clear"
+                    android:text="@string/clear" />
+
+                <Button
+                    android:id="@+id/plus10"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="plus10_pressed"
+                    android:text="@string/plus10" />
+
+                <Button
+                    android:id="@+id/plus5"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="plus5_pressed"
+                    android:text="@string/plus5" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:gravity="center|bottom"
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/grandTichuTeamB"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="grandTichuTeamB_pressed"
+                    android:text="@string/grandTichu"
+                    android:textOff="@string/grandTichu"
+                    android:textOn="@string/grandTichu"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/tichuTeamB"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="tichuTeamB_pressed"
+                    android:textOff="@string/tichu"
+                    android:textOn="@string/tichu" />
+
+                <ToggleButton
+                    android:id="@+id/oneTwoTeamB"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:gravity="center|center_horizontal"
+                    android:onClick="oneTwoTeamB_pressed"
+                    android:text="@string/oneTwo"
+                    android:textOff="@string/oneTwo"
+                    android:textOn="@string/oneTwo"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/historyTeamA"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:textSize="17sp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/historyTeamB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:textSize="17sp"
+        android:layout_weight="1" />
+
+</LinearLayout>
