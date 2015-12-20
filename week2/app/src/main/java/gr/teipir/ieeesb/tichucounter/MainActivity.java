@@ -42,8 +42,58 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new_round();
+        if (savedInstanceState == null){
+            new_round();
+        }
+
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save UI state changes to the savedInstanceState.
+        // This bundle will be passed to onCreate if the process is
+        // killed and restarted.
+        savedInstanceState.putInt("scoreTeamA", scoreTeamA);
+        savedInstanceState.putInt("scoreTeamB", scoreTeamB);
+
+        TextView historyTeamA = (TextView) findViewById(R.id.historyTeamA);
+        TextView historyTeamB = (TextView) findViewById(R.id.historyTeamB);
+
+        savedInstanceState.putString("historyTeamA", String.valueOf(historyTeamA.getText() ) );
+        savedInstanceState.putString("historyTeamB", String.valueOf(historyTeamB.getText() ) );
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // Restore UI state from the savedInstanceState.
+        // This bundle has also been passed to onCreate.
+        scoreTeamA = savedInstanceState.getInt("scoreTeamA");
+        scoreTeamB = savedInstanceState.getInt("scoreTeamB");
+
+        String historyTeamA = savedInstanceState.getString("historyTeamA");
+        String historyTeamB = savedInstanceState.getString("historyTeamB");
+
+        update_after_restore(historyTeamA, historyTeamB);
+    }
+
+    private void update_after_restore(String histTeamA, String histTeamB) {
+
+        TextView teamAscore = (TextView) findViewById(R.id.scoreTeamA);
+        TextView teamBscore = (TextView) findViewById(R.id.scoreTeamB);
+
+        teamAscore.setText(String.valueOf(scoreTeamA));
+        teamBscore.setText(String.valueOf(scoreTeamB));
+
+        TextView historyTeamA = (TextView) findViewById(R.id.historyTeamA);
+        TextView historyTeamB = (TextView) findViewById(R.id.historyTeamB);
+
+        historyTeamA.setText(histTeamA);
+        historyTeamB.setText(histTeamB);
+
+    }
+    
 
     /* Adds 50 points on Team A, and removes 50 points from Team B */
     public void plus50_pressed(View view) {
