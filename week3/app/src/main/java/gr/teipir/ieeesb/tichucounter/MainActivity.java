@@ -1,11 +1,16 @@
 package gr.teipir.ieeesb.tichucounter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -96,6 +101,61 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        Context context = getApplicationContext();
+
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast;
+        CharSequence text;
+
+        switch (item.getItemId()) {
+            case R.id.new_game:
+
+                scoreTeamA = 0;
+                scoreTeamB = 0;
+
+                TextView teamAscore = (TextView) findViewById(R.id.scoreTeamA);
+                TextView teamBscore = (TextView) findViewById(R.id.scoreTeamB);
+
+                teamAscore.setText(String.valueOf(scoreTeamA));
+                teamBscore.setText(String.valueOf(scoreTeamB));
+
+                TextView histA = (TextView) findViewById(R.id.historyTeamA);
+                TextView histB = (TextView) findViewById(R.id.historyTeamB);
+
+                histA.setText("");
+                histB.setText("");
+
+                new_round();
+
+                updateScores();
+
+                return true;
+            case R.id.settings:
+                text = "Settings!";
+                toast = Toast.makeText(context, text, duration);
+                toast.show();
+                return true;
+            case R.id.about:
+                text = "About!";
+                toast = Toast.makeText(context, text, duration);
+                toast.show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     /* Adds 50 points on Team A, and removes 50 points from Team B */
     public void plus50_pressed(View view) {
@@ -218,6 +278,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView initScoreTeamB = (TextView) findViewById(R.id.currentPointsTeamB);
         initScoreTeamB.setText(getString(R.string.currentPointsTeamB) + String.valueOf(currentScoreTeamB));
+
     }
 
     /* Reset all necessary variables, TextViews and Buttons*/
